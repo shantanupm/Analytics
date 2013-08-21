@@ -1,0 +1,88 @@
+      <Context path="/schedulingSystem" docBase="scheduling_system" debug="5" reloadable="true" crossContext="true">
+      <!-- maxActive: Maximum number of dB connections in pool. Make sure you
+      configure your mysqld max_connections large enough to handle all of your db connections. Set to 0 for no limit.
+       -->
+
+      <!-- maxIdle: Maximum number of idle dB connections to retain in pool.
+
+      Set to -1 for no limit. See also the DBCP documentation on this
+
+      and the minEvictableIdleTimeMillis configuration parameter.
+
+      -->
+
+       
+
+      <!-- maxWait: Maximum time to wait for a dB connection to become available
+
+      in ms, in this example 10 seconds. An Exception is thrown if
+
+      this timeout is exceeded. Set to -1 to wait indefinitely.
+
+      -->
+
+       
+
+      <!-- username and password: MySQL dB username and password for dB connections -->
+
+
+      <!-- driverClassName: Class name for the old mm.mysql JDBC driver is
+
+      org.gjt.mm.mysql.Driver - we recommend using Connector/J though.
+
+      Class name for the official MySQL Connector/J driver is com.mysql.jdbc.Driver.
+
+      -->
+
+       
+
+      <!-- url: The JDBC connection url for connecting to your MySQL dB.
+
+      The autoReconnect=true argument to the url makes sure that the
+
+      mm.mysql JDBC Driver will automatically reconnect if mysqld closed the
+
+      connection. mysqld by default closes idle connections after 8 hours.
+
+      -->
+
+
+     <!--  <Resource name="jdbc/ssDB" auth="Container" type="javax.sql.DataSource"
+	  
+	  initialSize="10" maxActive="30" maxIdle="15" minIdle="3"  maxWait="10000" 
+
+	  suspectTimeout="60" timeBetweenEvictionRunsMillis="30000" minEvictableIdleTimeMillis="60000" testOnBorrow="true" 
+	  
+	  validationInterval="3600000" validationQuery="SELECT 1" 
+
+	  driverClassName="com.mysql.jdbc.Driver" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+	  
+      username="ssUser" password="ssUser" url="jdbc:mysql://localhost:3306/scheduling"/> -->
+      
+   <Resource name="jdbc/ssDB" auth="Container" type="javax.sql.DataSource"
+	  
+	  initialSize="10" maxActive="30" maxIdle="15" minIdle="3"  maxWait="10000" 
+
+	  suspectTimeout="60" timeBetweenEvictionRunsMillis="30000" minEvictableIdleTimeMillis="60000" testOnBorrow="true" 
+	  
+	  validationInterval="3600000" validationQuery="SELECT 1" 
+	
+		  driverClassName="net.sourceforge.jtds.jdbc.Driver" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+	
+	      username="ssUser" password="ssUser" url="jdbc:jtds:sqlserver://DIWFDBPS1001.canyon.com/scheduling_dev"/>	  
+      
+      <!-- 
+      
+	<Resource name="jdbc/campusDB" auth="Container" type="javax.sql.DataSource"
+
+	  initialSize="10" maxActive="30" maxIdle="15" minIdle="3"  maxWait="10000" 
+
+	  suspectTimeout="60" timeBetweenEvictionRunsMillis="30000" minEvictableIdleTimeMillis="60000" testOnBorrow="true" 
+	  
+	  validationInterval="3600000" validationQuery="SELECT 1" 
+
+	  driverClassName="net.sourceforge.jtds.jdbc.Driver" factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
+
+      username="bpahi" password="loudcloud" url="jdbc:jtds:sqlserver://K-DWH-WRS-P02:1433/CampusVue"/>	  
+       -->
+      </Context>

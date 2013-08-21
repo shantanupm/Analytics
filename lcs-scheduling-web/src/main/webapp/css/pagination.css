@@ -1,0 +1,205 @@
+
+#Searchresult {
+background-color:#FFFFFF;
+border:1px solid #dfdfdf ;
+left:14px;
+width:577px;
+margin:0px 13px 0 13px;
+z-index:10008;
+}
+#Searchresult ul{margin:30px;list-style-type:none; padding:0px; color:#555555;min-height:150px}
+#Searchresult ul li{font-size:13px; margin:10px 0 0 0}
+#Searchresult ul li span{font-size:15px;}
+#Searchresult ul li label{font-size:13px; margin:0 0 0 5px}
+
+.pagination {
+font-size:13px;
+  
+        }
+	
+.pagination a {
+background:transparent url(../images/quizpage_num_Bg.png) no-repeat scroll 0 -44px;
+/*border-right:1px solid #FFFFFF;*/ margin-right:0px;
+color:#555555;
+cursor:pointer;
+display:block;
+float:left;
+font-weight:normal;
+padding:5px 0 10px 0;
+text-align:center;
+text-decoration:none;
+width:28px;
+}
+.pagination a:hover {
+background:transparent url(../images/quizpage_num_Bg.png) no-repeat scroll 0 -1px;
+color:#fff;
+cursor:pointer;
+display:block;
+float:left;
+font-weight:normal;
+padding:5px 0 9px 0;
+text-align:center;
+text-decoration:none;
+width:28px;
+font-weight:bold
+}
+.pagination .appearque:hover {
+background:transparent url(../images/quizpage_num_Bg.png) no-repeat scroll 0 0px;
+color:#fff;
+cursor:pointer;
+display:block;
+float:left;
+font-weight:normal;
+padding:5px 0 10px 0;
+text-align:center;
+text-decoration:none;
+width:28px;
+font-weight:bold
+}
+
+.pagination span {
+    display: block;
+    float: left;
+   /* padding: 0.3em 0.5em;*/
+    margin-right: 0px;
+	min-width:1em;
+	text-align:center;
+}
+
+.pagination .current {
+background:transparent url(../images/quizpage_num_Bg.png) no-repeat scroll 0 0px;
+color:#fff;
+cursor:pointer;
+display:block;
+float:left;
+font-weight:bold;
+padding:5px 0 10px 0;
+text-align:center;
+text-decoration:none;
+width:28px;
+font-weight:bold
+}
+/* Prev Next arrows*/
+.pagination .current.prev{
+background:transparent url(../images/bullet6.png) no-repeat scroll 0 0;
+border:0 solid #FFFFFF;
+height:12px;
+text-decoration:none;
+width:6px;
+background-position:left -40px;
+margin:0 0px 0 0;
+padding:0.3em 0em;
+min-width:1em;
+text-decoration:none;
+}
+.pagination .current.prev:hover{
+background:transparent url(../images/bullet6.png) no-repeat scroll 0 0;
+border:0 solid #FFFFFF;
+height:12px;
+text-decoration:none;
+width:6px;
+background-position:left -40px;
+margin:0 0px 0 0;
+padding:0.3em 0em;
+min-width:1em;
+text-decoration:none;
+}
+.pagination .current.next{
+background-color:orange; display:block;background:transparent url(../images/bullet6.png) no-repeat scroll 0 0;
+border:0 solid #FFFFFF;
+height:12px;
+text-decoration:none;
+width:6px;
+padding:0em;
+background-position:right -75px;;
+margin:6px 0px 0 0;
+min-width:1em;
+text-decoration:none;
+}
+
+.pagination .current.next:hover{
+background:transparent url(../images/bullet6.png) no-repeat scroll 0 0;
+border:0 solid #FFFFFF;
+height:12px;
+min-width:1em;
+text-decoration:none;
+width:6px;
+padding:0em;
+background-position:right -75px;
+margin:6px 0px 0 0;
+text-decoration:none;
+}
+.pagination .prev
+{
+background:transparent url(../images/bullet6.png) no-repeat scroll 0 0;
+border:0 solid #FFFFFF;
+height:12px;
+text-decoration:none;
+width:6px;
+background-position:left -15px;
+margin:0 0px 0 0px;
+padding:0.3em 0em;
+min-width:1em;
+text-decoration:none;
+}
+.pagination .prev:hover{
+background:transparent url(../images/bullet6.png) no-repeat scroll 0 0;
+border:0 solid #FFFFFF;
+height:12px;
+text-decoration:none;
+width:6px;
+padding:0.3em 0em;
+background-position:left -15px;
+margin:0 0px 0 0px;
+min-width:1em;
+text-decoration:none;
+}
+.pagination .next{
+background:transparent url(../images/bullet6.png) no-repeat scroll 0 0;
+border:0 solid #FFFFFF;
+height:12px;
+min-width:1em;
+text-decoration:none;
+width:6px;
+padding:0em;
+background-position:right 0px;
+margin:6px 0px 0 0;
+text-decoration:none;
+}
+.pagination .next:hover{
+
+background:transparent url(../images/bullet6.png) no-repeat scroll 0 0;
+border:0 solid #FFFFFF;
+height:12px;
+text-decoration:none;
+width:6px;
+padding:0em;
+background-position:right 0px;
+margin:6px 0px 0 0;
+min-width:1em;
+text-decoration:none;}
+
+
+
+#Searchresult.PgnSatic1ResBox  {
+background-color:#FFFFFF;
+border:0px solid #dfdfdf ;
+left:auto;
+width:100%;
+margin:0;
+z-index:10008;
+}
+
+
+#Pagination.PgnSatic1  {	background:#efefef;  height:23px; margin:8px 0; 	}
+#Pagination.PgnSatic1 .pagination {	   float:right	}
+
+#Pagination.PgnSatic1 .pagination a, #Pagination.PgnSatic1 .pagination span {	font:normal 11px Arial, Helvetica, sans-serif;  color:#343434; width:20px; height:17px; padding:6px 1px 0 0; float:left; cursor:pointer; background:url(../images/paging_bg1.png) no-repeat 0 -92px; text-align:center; margin:-2px 1px 0 1px; 	}
+#Pagination.PgnSatic1 .pagination a:hover, #Pagination.PgnSatic1 .pagination span.current {	text-decoration:none; background-position: 0 -138px; color:#fff	} 
+#Pagination.PgnSatic1 .pagination span.current {	background-position:0 -115px; 	}
+
+#Pagination.PgnSatic1 .pagination a.prev, #Pagination.PgnSatic1 .pagination a.prev:hover {	background-position: 0 -69px; margin-right:10px; margin-top:-1px	}
+#Pagination.PgnSatic1 .pagination a.next, #Pagination.PgnSatic1 .pagination a.next:hover {	background-position: 0 -46px; margin-left:10px; margin-top:-1px	}
+
+#Pagination.PgnSatic1 span.prev.current, #Pagination.PgnSatic1 span.prev.current:hover {	background-position: 0 0; cursor:default; margin-top:-2px;  margin-right:10px; }
+#Pagination.PgnSatic1 span.next.current, #Pagination.PgnSatic1 span.next.current:hover {	background-position: 0 -23px; cursor:default; margin-top:-2px ;  margin-left:10px;	} 

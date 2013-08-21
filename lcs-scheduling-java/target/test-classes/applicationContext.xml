@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jms="http://www.springframework.org/schema/jms"
+	xmlns:amq="http://activemq.apache.org/schema/core"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-3.0.xsd
+        http://www.springframework.org/schema/tx
+     	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+        http://www.springframework.org/schema/jms 
+        http://www.springframework.org/schema/jms/spring-jms-3.0.xsd
+        http://activemq.apache.org/schema/core 
+        http://activemq.apache.org/schema/core/activemq-core.xsd
+        http://www.springframework.org/schema/task 
+        http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+	<!-- This will automatically locate any and all property files you have 
+		within your classpath, provided they fall under the META-INF/spring directory. 
+		The located property files are parsed and their values can then be used within 
+		application context files in the form of ${propertyKey}. -->
+
+
+	<!-- Turn on AspectJ @Configurable support. As a result, any time you instantiate 
+		an object, Spring will attempt to perform dependency injection on that object. 
+		This occurs for instantiation via the "new" keyword, as well as via reflection. 
+		This is possible because AspectJ is used to "weave" Roo-based applications 
+		at compile time. In effect this feature allows dependency injection of any 
+		object at all in your system, which is a very useful feature (without @Configurable 
+		you'd only be able to dependency inject objects acquired from Spring or subsequently 
+		presented to a specific Spring dependency injection method). Roo applications 
+		use this useful feature in a number of areas, such as @PersistenceContext 
+		injection into entities. -->
+	<context:spring-configured />
+	<context:annotation-config />
+
+	<!-- This declaration will cause Spring to locate every @Component, @Repository 
+		and @Service in your application. In practical terms this allows you to write 
+		a POJO and then simply annotate the new POJO as an @Service and Spring will 
+		automatically detect, instantiate and dependency inject your service at startup 
+		time. Importantly, you can then also have your new service injected into 
+		any other class that requires it simply by declaring a field for your service 
+		inside the relying class and Spring will inject it. Note that two exclude 
+		filters are declared. The first ensures that Spring doesn't spend time introspecting 
+		Roo-specific ITD aspects. The second ensures Roo doesn't instantiate your 
+		@Controller classes, as these should be instantiated by a web tier application 
+		context. Refer to web.xml for more details about the web tier application 
+		context setup services. Furthermore, this turns on @Autowired, @PostConstruct 
+		etc support. These annotations allow you to use common Spring and Java Enterprise 
+		Edition annotations in your classes without needing to do any special configuration. 
+		The most commonly used annotation is @Autowired, which instructs Spring to 
+		dependency inject an object into your class. -->
+
+
+
+
+	<!-- <property name="url" value="${database.url}"/> <property name="username" 
+		value="${database.username}"/> <property name="password" value="${database.password}"/> 
+		</bean> -->
+	<!-- normal repository -->
+	<context:component-scan base-package="com.ss,edu.gcu" />
+
+	<!-- <bean id="methodInvokingJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"> 
+		<property name="targetObject" ref="etlUtil"/> <property name="targetMethod" 
+		value="startScheduledDailyETLJob"/> </bean> <bean id="dailyEtlTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean"> 
+		<property name="cronExpression" value="0 0 0 * * *"/> <property name="jobDetail" 
+		ref="methodInvokingJobDetail"></property> </bean> <bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean"> 
+		<property name="triggers"> <list> <ref local="dailyEtlTrigger"/> </list> 
+		</property> </bean> -->
+
+
+
+	<!-- START Load properties -->
+	<bean id="environmentVariablesConfiguration"
+		class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+		<property name="algorithm" value="PBEWithMD5AndDES" />
+		<property name="passwordEnvName" value="APP_ENCRYPTION_PASSWORD" />
+	</bean>
+
+	<bean id="configurationEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+		<property name="config" ref="environmentVariablesConfiguration" />
+	</bean>
+
+	<bean id="propertyConfigurer"
+		class="org.jasypt.spring.properties.EncryptablePropertyPlaceholderConfigurer">
+		<constructor-arg ref="configurationEncryptor" />
+		<property name="locations">
+			<list>
+				<value>classpath:application.properties</value>
+				<value>file:${properties.filepath}</value>
+			</list>
+		</property>
+		<property name="ignoreResourceNotFound" value="true" />
+	</bean>
+	<!-- TODO:Avinash There is a better way of loading these properties -->
+	<bean id="connectionString" class="java.lang.String">
+		<constructor-arg value="${connectionString}" />
+	</bean>
+	<bean id="cvueUserName" class="java.lang.String">
+		<constructor-arg value="${cvueUserName}" />
+	</bean>
+	<bean id="cvuePassword" class="java.lang.String">
+		<constructor-arg value="${cvuePassword}" />
+	</bean>
+	<bean id="authWSDLURL" class="java.lang.String">
+		<constructor-arg value="${authWSDLURL}" />
+	</bean>
+	<bean id="registerWSDLURL" class="java.lang.String">
+		<constructor-arg value="${registerWSDL}" />
+	</bean>
+	<bean id="timeOutDelay" class="java.lang.String">
+		<constructor-arg value="${timeOutDelay}" />
+	</bean>
+	<bean id="breakServiceWSDL" class="java.lang.String">
+		<constructor-arg value="${breakServiceWSDL}" />
+	</bean>
+	<bean id="enrollmentServiceWSDL" class="java.lang.String">
+		<constructor-arg value="${enrollmentServiceWSDL}" />
+	</bean>
+	<bean id="crmServiceEndpoint" class="java.lang.String">
+		<constructor-arg value="${crmServiceEndpoint}" />
+	</bean>
+
+	<!-- END Load properties -->
+
+	<bean id="showHudsonBuildNumber" class="java.lang.String">
+		<constructor-arg value="${showHudsonBuildNumber}" />
+	</bean>
+	<bean id="showProjectVersion" class="java.lang.String">
+		<constructor-arg value="${showProjectVersion}" />
+	</bean>
+	<bean id="showSVNRevision" class="java.lang.String">
+		<constructor-arg value="${showSVNRevision}" />
+	</bean>
+	<bean id="showBuildDate" class="java.lang.String">
+		<constructor-arg value="${showBuildDate}" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="teaDataSource" />
+		<property name="entityInterceptor" ref="auditInterceptor" />
+		<property name="packagesToScan">
+			<list>
+				<value>com.ss</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="auditInterceptor" class="com.ss.common.dao.interceptor.AuditInterceptor" />
+
+	<!-- Transaction management -->
+	<tx:annotation-driven mode="aspectj" />
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="nestedTransactionAllowed" value="true" />
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+
+	<bean id="cvueDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver" />
+		<property name="url"
+			value="jdbc:jtds:sqlserver://TDWHDBPS1001.canyon.com:1433/Campusvue_uat;user=svc_lcsschedule;password=WATGUfrQ67JVvB1" />
+	</bean>
+
+
+	<bean
+		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+		<property name="exceptionMappings">
+			<props>
+				<prop key="java.lang.Exception">globalErrorTemplate</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<!-- Spring Security -->
+	<bean class="com.ss.user.security.SSAuthenticationSuccessHandlerImpl"
+		id="authenticationHandler" />
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<!-- one of the properties available; the maximum file size in bytes -->
+		<property name="maxUploadSize" value="${fileupload.maxsize}" />
+	</bean>
+
+	<!-- Spring Rest Client -->
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+		<constructor-arg>
+			<bean
+				class="org.springframework.http.client.HttpComponentsClientHttpRequestFactory">
+				<property name="readTimeout" value="10000" />
+				<property name="connectTimeout" value="1000" />
+			</bean>
+		</constructor-arg>
+		<property name="messageConverters">
+			<list>
+				<bean
+					class="org.springframework.http.converter.StringHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.xml.SourceHttpMessageConverter" />
+				<bean
+					class="org.springframework.http.converter.xml.Jaxb2RootElementHttpMessageConverter" />
+			</list>
+		</property>
+		<property name="errorHandler">
+			<bean name="errorHandler"
+				class="com.ss.evaluation.service.client.RestServiceErrorHandler" />
+		</property>
+	</bean>
+
+	<!-- Spring SOAP Client -->
+
+	<bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory" />
+
+	<bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
+		<constructor-arg ref="messageFactory" />
+		<property name="marshaller" ref="jaxb2Marshaller" />
+		<property name="unmarshaller" ref="jaxb2Marshaller" />
+		<property name="interceptors">
+			<list>
+				<ref bean="clientLoggingInterceptor" />	
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="clientLoggingInterceptor"
+		class="edu.gcu.campusvue.service.interceptor.ClientLoggingInterceptor">
+	</bean>
+
+	<bean id="jaxb2Marshaller" class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
+		<property name="classesToBeBound">
+			<list>
+				<value>com.campusmgmt.soa.foundation.messagedefinition.AddTransferCourses</value>
+				<value>com.campusmgmt.soa.foundation.messagedefinition.AddTransferCoursesResponse</value>
+				<value>com.campusmgmt.soa.foundation.messagedefinition.AddTransferCredits</value>
+				<value>com.campusmgmt.soa.foundation.messagedefinition.AddTransferCreditsResponse</value>
+			    <value>com.campusmgmt.soa.foundation.GetAuthorizationToken</value>
+				<value>com.campusmgmt.soa.foundation.GetAuthorizationTokenResponse</value>
+				<value>edu.gcu.InsertInstitutionRequest</value>
+				<value>edu.gcu.InsertInstitutionResponse</value>
+				
+			</list>
+		</property>
+	</bean>
+	
+	<!-- End of Spring SOAP Client -->
+</beans>

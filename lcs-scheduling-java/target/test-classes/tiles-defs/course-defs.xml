@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<definition name="manageCourse" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/course/manageCourse.jsp"/>
+	</definition>
+	
+	<definition name="addCourseRelationship" extends="popupTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/course/addCourseRelationship.jsp"/>
+	</definition>
+	
+	<definition name="addCourseCtgRelationship" extends="popupTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/course/addCourseCtgRelationship.jsp"/>
+	</definition>
+	
+	<definition name="createCourse" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/course/createCourse.jsp"/>
+	</definition>
+	
+	<definition name="manageCourseRelationship" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/course/manageCourseRelationship.jsp"/>
+	</definition>
+	<definition name="manageCourseCtgRelationship" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/course/manageCourseCtgRelationship.jsp"/>
+	</definition>
+	<definition name="courseList" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/course/courseList.jsp"/>
+	</definition>
+	<definition name="coursesForApproval" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/course/coursesForApproval.jsp"/>
+	</definition>
+	<definition name="ieCourseTitlePopup" extends="popupTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieCourseTitlePopup.jsp"/>
+	</definition>
+	<definition name="ieMilitarySubjectPopup" extends="popupTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieMilitarySubjectPopup.jsp"/>
+	</definition>
+</tiles-definitions>

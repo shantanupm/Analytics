@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="lcs-scheduling-web">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="lcs-scheduling-java-0.5.024-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/lcs-scheduling-java/lcs-scheduling-java">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/lcs-scheduling-web/target/classes"/>
+        <property name="context-root" value="scheduling_system"/>
+    </wb-module>
+</project-modules>

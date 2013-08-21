@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<beans xmlns="http://www.springframework.org/schema/beans"
+	    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	    default-autowire="byName"
+	    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+	 
+	    <bean id="scheduler"
+	        class="org.springframework.scheduling.quartz.SchedulerFactoryBean" lazy-init="false">
+	        <property name="autoStartup" value="true"/>
+	        <property name="applicationContextSchedulerContextKey" value="applicationContext"/>
+	        <property name="waitForJobsToCompleteOnShutdown" value="true"/>
+	        <property name="overwriteExistingJobs" value="true"/>
+	        <property name="dataSource">
+	            <ref bean="teaDataSource"/>
+	        </property>
+	        <property name="transactionManager">
+	            <ref bean="transactionManager"/>
+	        </property>
+	        <property name="jobFactory">
+	            <bean class="com.ss.common.util.CustomSpringBeanJobFactory"/>
+	        </property>
+	        <property name="quartzProperties">
+	            <props>
+	                <prop key="org.quartz.jobStore.driverDelegateClass">org.quartz.impl.jdbcjobstore.StdJDBCDelegate</prop>
+	                <prop key="org.quartz.jobStore.selectWithLockSQL">SELECT * FROM {0}LOCKS UPDLOCK WHERE LOCK_NAME = ?</prop>
+	 
+	                <prop key="org.quartz.jobStore.isClustered">true</prop>
+	                <prop key="org.quartz.jobStore.clusterCheckinInterval">20000</prop>
+	 				<!--  <prop key="org.quartz.jobStore.useProperties">true</prop>-->
+	                <prop key="org.quartz.scheduler.instanceName">classClusteredSchedular</prop>
+	                <prop key="org.quartz.scheduler.instanceId">AUTO</prop>
+	                <prop key="org.quartz.scheduler.jmx.export">false</prop>
+	            </props>
+	        </property>
+	        <property name="triggers">
+	            <list>
+	                <ref bean="autoEvaluationJobTrigger"/>
+	            </list>
+	        </property>
+	    </bean>
+	 
+	    <bean id="autoEvaluationJobTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+	        <property name="jobDetail">
+	            <bean name="autoEvalutationJob" class="org.springframework.scheduling.quartz.JobDetailBean">
+	                <property name="name" value="autoEvalutationJob"/>
+	                <property name="jobClass" value="com.ss.evaluation.util.EvalutationJob"/>
+	            </bean>
+	        </property>
+	        
+	          <property name="cronExpression" value="0 0/5 * * * ?"/>
+	    </bean>
+	 
+	    <bean id="autoEvalutationJob" class="com.ss.evaluation.util.EvalutationJob">
+	    </bean>
+	  
+	   
+	    
+	    
+	</beans>

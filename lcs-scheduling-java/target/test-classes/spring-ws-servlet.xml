@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+    <!-- ===================== WSDL DEFINITION    ============================== -->
+
+<bean id="scheduling" class="org.springframework.ws.wsdl.wsdl11.DefaultWsdl11Definition">
+        <description>
+            Builds a WSDL from the scheduling.xsd.This bean definition represents the scheduling.wsdl file found
+            in the root of the web application.
+        </description>
+        <property name="schema" ref="schedulingSchema"/>
+        <property name="portTypeName" value="LCSScheduling"/>
+        <property name="locationUri" value="/services/lcsSchedulingService/"/>
+        <property name="targetNamespace"
+                value="http://www.loudcloudsystem.com"/>
+    </bean>
+</beans>

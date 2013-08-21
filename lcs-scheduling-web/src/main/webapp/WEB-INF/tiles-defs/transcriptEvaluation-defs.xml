@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+
+	<!-- <definition name="launchTranscriptEvaluation" template="/WEB-INF/jsp/evaluation/launchTranscriptEvaluation.jsp"> 
+	</definition>-->
+	<definition name="launchTranscriptEvaluation" extends="iframeTemplate" >
+		<put-attribute name="body" value="/WEB-INF/jsp/evaluation/launchTranscriptEvaluation.jsp"></put-attribute>
+	</definition>
+	<definition name="selectAnotherStudent" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/selectAnotherStudent.jsp"/> 
+	</definition>
+	<definition name="launchStudentLevelEvaluation" extends="iframeTemplate" >
+		<put-attribute name="body" value="/WEB-INF/jsp/evaluation/launchStudentLevelEvaluation.jsp"></put-attribute>
+	</definition>
+	
+	
+	<definition name="launchLopesEvaluation" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/launchLopesEvaluation.jsp"/> 
+	</definition>
+	
+	<definition name="viewTranscripts" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/admin/viewTranscripts.jsp"/> 
+	</definition>
+	<definition name="viewInstitutions" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/admin/viewInstitutions.jsp"/> 
+	</definition>
+	<definition name="editInstitution" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/admin/editInstitution.jsp"/> 
+	</definition>
+	<definition name="viewCourses" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/admin/viewCourses.jsp"/> 
+	</definition>
+	<definition name="viewInstitutionDetails" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/admin/viewInstitutionDetails.jsp"/> 
+	</definition>
+	<definition name="viewCourseDetails" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/admin/viewCourseDetails.jsp"/> 
+	</definition>
+	<definition name="adminView" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/admin/adminView.jsp"/> 
+	</definition>
+	<definition name="editCourse" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/admin/editCourse.jsp"/> 
+	</definition>
+	
+	<!-- 
+	<definition name="evaluationHome" template="/WEB-INF/jsp/evaluation/evaluationHome.jsp">
+	</definition>
+	
+	<definition name="selectInstitution" template="/WEB-INF/jsp/institution/selectInstitution.jsp">
+	</definition>
+	-->
+	
+	<definition name="evaluationHome" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/evaluation/evaluationHome.jsp"/>
+	</definition>
+	
+	<definition name="transcriptList" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/evaluation/transcriptList.jsp"/>
+	</definition>
+	
+	<definition name="selectInstitution" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/selectInstitution.jsp"/> 
+	</definition>
+	
+	<definition name="addTranscripts" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/transcripts/addTranscripts.jsp"/> 
+	</definition>
+	
+	<definition name="studentEvaluatorHome" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/studentEvaluator/studentEvaluatorHome.jsp"/> 
+	</definition>
+
+	<definition name="manageInstitution" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/manageInstitution.jsp"/> 
+	</definition>		
+
+	<definition name="createInstitution" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/createInstitution.jsp"/> 
+	</definition>
+	<definition name="selectParentInstitution" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/selectParentInstitution.jsp"/> 
+	</definition>			
+	
+	<definition name="addAccreditingBody" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/addAccreditingBody.jsp"/> 
+	</definition>
+	<definition name="manageAccreditingBody" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/manageAccreditingBody.jsp"/> 
+	</definition>	
+	
+	<definition name="addInstitutionTermType" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/addInstitutionTermType.jsp"/> 
+	</definition>
+	<definition name="manageInstitutionTermType" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/manageInstitutionTermType.jsp"/> 
+	</definition>	
+	
+	<definition name="addInstitutionTranscriptKey" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/addInstitutionTranscriptKey.jsp"/> 
+	</definition>
+	<definition name="manageInstitutionTranscriptKey" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/manageInstitutionTranscriptKey.jsp"/> 
+	</definition>	
+	
+	<definition name="addArticulationAgreement" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/addArticulationAgreement.jsp"/> 
+	</definition>
+	<definition name="manageArticulationAgreement" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/manageArticulationAgreement.jsp"/> 
+	</definition>	
+	<definition name="institutionList" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/institutionList.jsp"/> 
+	</definition>	
+	
+	<definition name="entryInstitution" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/entryInstitution.jsp"/> 
+	</definition>	
+	<definition name="qualityEvaluation" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/qualityEvaluation.jsp"/> 
+	</definition>
+	
+	<definition name="ieEvaluate" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieEvaluate.jsp"/> 
+	</definition>
+	
+	<definition name="ieInstitution" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieInstitution.jsp"/> 
+	</definition>
+	
+	<definition name="ieCourse" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieCourse.jsp"/> 
+	</definition>
+	
+	<definition name="ieAddAccreditingBody" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieAddAccreditingBody.jsp"/> 
+	</definition>
+	<definition name="ieManageAccreditingBody" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieManageAccreditingBody.jsp"/> 
+	</definition>
+	
+		
+	<definition name="ieAddArticulationAgreement" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieAddArticulationAgreement.jsp"/> 
+	</definition>
+	<definition name="ieManageArticulationAgreement" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieManageArticulationAgreement.jsp"/> 
+	</definition>	
+	<definition name="ieAddInstitutionTermType" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieAddInstitutionTermType.jsp"/> 
+	</definition>
+	<definition name="ieManageInstitutionTermType" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieManageInstitutionTermType.jsp"/> 
+	</definition>	
+	<definition name="ieAddInstitutionTranscriptKey" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieAddInstitutionTranscriptKey.jsp"/> 
+	</definition>
+	<definition name="ieManageInstitutionTranscriptKey" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieManageInstitutionTranscriptKey.jsp"/> 
+	</definition>	
+	
+	
+	<definition name="ieAddCourseRelationship" extends="popupTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieAddCourseRelationship.jsp"/>
+	</definition>
+	<definition name="ieManageCourseRelationship" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieManageCourseRelationship.jsp"/>
+	</definition>
+	
+	<definition name="ieAddCourseCtgRelationship" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieAddCourseCtgRelationship.jsp"/> 
+	</definition>
+	<definition name="ieManageCourseCtgRelationship" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieManageCourseCtgRelationship.jsp"/> 
+	</definition>	
+	
+	<definition name="ieAddCourseTitle" extends="popupTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieAddCourseTitle.jsp"/>
+	</definition>
+	<definition name="ieManageCourseTitles" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieManageCourseTitles.jsp"/>
+	</definition>
+	
+	<definition name="managerEvaluationView" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/managerEvaluationView.jsp"/> 
+	</definition>	
+	<definition name="conflictInstitution" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/conflictInstitution.jsp"/> 
+	</definition>	
+	<definition name="conflictCourse" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/conflictCourse.jsp"/> 
+	</definition>
+	<definition name="courseReAssignList" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/course/courseReAssignList.jsp"/> 
+	</definition>
+	<definition name="reAssignCourse" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/course/reAssignCourse.jsp"/> 
+	</definition>
+	<definition name="institutionReAssignList" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/institutionReAssignList.jsp"/> 
+	</definition>
+	<definition name="reAssignInstitution" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/institution/reAssignInstitution.jsp"/> 
+	</definition>
+	<definition name="ieEvaluateInstitutionForm" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieEvaluateInstitutionForm.jsp"/> 
+	</definition>
+	
+	<definition name="ieEvaluateCourseForm" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieEvaluateCourseForm.jsp"/> 
+	</definition>
+	
+	<definition name="manageUsers" extends="iframeTemplate">
+		 <put-attribute name="body" value="/WEB-INF/jsp/user/manageUsers.jsp"/> 
+	</definition>
+	<definition name="createUser" extends="iframeTemplate">
+		 <put-attribute name="body" value="/WEB-INF/jsp/user/createUser.jsp"/> 
+	</definition>
+	<definition name="importUser" extends="popupTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/user/importUser.jsp" />  
+	</definition>
+	
+	<definition name="deoComments" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/deoComments.jsp"/> 
+	</definition>
+	<definition name="showInstitueForState" template="/WEB-INF/jsp/institution/showInstitueForState.jsp">
+	</definition>
+	<definition name="ieEvaluateInstitutionQueue" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/ieEvaluateInstitutionQueue.jsp"/> 
+	</definition>
+	
+	<definition name="viewTranscriptsGroup" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/admin/viewTranscriptsGroup.jsp"/> 
+	</definition>
+	<definition name="ieSelectedEvalutation" template="/WEB-INF/jsp/ieEvaluation/ieSelectedEvalutation.jsp">
+	</definition>
+	<definition name="addressList"  template="/WEB-INF/jsp/evaluation/addressList.jsp">
+	</definition>
+	<definition name="searchResult" template="/WEB-INF/jsp/evaluation/searchResult.jsp"/>
+	
+	<definition name="launchTranscriptForSLEAndLOPES" extends="iframeTemplate" >
+		<put-attribute name="body" value="/WEB-INF/jsp/evaluation/launchTranscriptForSLEAndLOPES.jsp"></put-attribute>
+	</definition>
+	<definition name="rejectedTrascriptForEvaluation" extends="iframeTemplate" >
+		<put-attribute name="body" value="/WEB-INF/jsp/evaluation/rejectedTrascriptForEvaluation.jsp"></put-attribute>
+	</definition>
+	<definition name="showAllPrograms" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/evaluation/popup/viewAllPrograms.jsp"/> 
+	</definition>
+	<definition name="addAddress" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/addAddress.jsp"/> 
+	</definition>
+	<definition name="iemCourseConflict" extends="iframeTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/iemCourseConflict.jsp"/> 
+	</definition>
+	
+	<definition name="acceptedTransferGrade"  template="/WEB-INF/jsp/ieEvaluation/acceptedTransferGrade.jsp">
+	</definition>
+	<definition name="instituteCourseLevel" extends="popupTemplate">
+	    <put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/instituteCourseLevel.jsp"/> 
+	</definition>
+	
+	<definition name="transcriptCommentsList"  template="/WEB-INF/jsp/evaluation/transcriptCommentsList.jsp">
+	</definition>
+	
+	<definition name="evaluationMilitary" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/evaluation/evaluationMilitary.jsp"/>
+	</definition>
+	<definition name="iemHomePage" extends="iframeTemplate">
+		<put-attribute name="body" value="/WEB-INF/jsp/ieEvaluation/iemHomePage.jsp"/>
+	</definition>
+	
+</tiles-definitions>

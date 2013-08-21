@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="getParam" template="/WEB-INF/jsp/programStructure/studentCourseParam.jsp">
+	</definition>
+	<definition name="programStructure" template="/WEB-INF/jsp/programStructure/programStructure.jsp">
+	</definition>
+	<definition name="underGradParam" template="/WEB-INF/jsp/programStructure/underGradStudentParam.jsp">
+	</definition>
+	<definition name="underGradStudentList" template="/WEB-INF/jsp/programStructure/listUnderGradStudents.jsp">
+	</definition>
+	<definition name="underGradRegistrationResult" template="/WEB-INF/jsp/programStructure/underGradRegistrationResult.jsp">
+	</definition>
+</tiles-definitions>

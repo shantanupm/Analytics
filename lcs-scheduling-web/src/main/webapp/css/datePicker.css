@@ -1,0 +1,269 @@
+
+
+table.jCalendar {
+	border: 0px solid #DCDCDC;
+	background: #EDEDED;
+    border-spacing:2px;
+}
+table.jCalendar th {
+	background: #EDEDED;
+	color: #333;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	padding: 3px 5px;
+}
+
+table.jCalendar td {
+	border: 1px solid #CBCBCB;
+	background: #F7F7F7;
+	color: #4895ca;
+	font-weight:bold;
+	padding: 4px 5px 4px 5px;
+	text-align: center;
+}
+table.jCalendar td.other-month {
+	border: 1px solid #DCDCDC;
+	background: #ddd;
+	color: #aaa;
+}
+table.jCalendar td.today {
+	background: #FFF0A5;
+	border:1px solid #FED22F;
+	color: #4895ca;
+}
+table.jCalendar td.selected {
+	background: #FDDC68;
+	color: #792b10;
+}
+table.jCalendar td.selected.dp-hover {
+	background: #FFE051;
+	color: #c77405;
+}
+table.jCalendar td.dp-hover,
+table.jCalendar tr.activeWeekHover td {
+	background:#FEEFA6;
+	border: solid #FDD236 1px;
+	color: #c77405;
+}
+table.jCalendar tr.selectedWeek td {
+	background: #f66;
+	color: #fff;
+}
+table.jCalendar td.disabled, table.jCalendar td.disabled.dp-hover {
+	background: #bbb;
+	color: #888;
+}
+table.jCalendar td.unselectable,
+table.jCalendar td.unselectable:hover,
+table.jCalendar td.unselectable.dp-hover {
+	background: #bbb;
+	color: #888;
+}
+
+/* For the popup */
+
+/* NOTE - you will probably want to style a.dp-choose-date - see how I did it in demo.css */
+
+div.dp-popup {
+	position: relative;
+	background: #EDEDED;
+	font-size: 10px;
+	border: solid #a8a8a8 1px;
+	font-family: arial, sans-serif;
+	padding: 2px 1px 1px 1px;
+	width: 186px;
+	margin-left:-2px;
+	-moz-border-radius: 15px;
+	border-radius: 5px;
+	line-height: 1.2em; 
+	box-shadow: 1px 1px 3px #ccc;
+}
+div#dp-popup {
+	position: absolute;
+	z-index: 199999;
+	-moz-border-radius:5px;
+}
+div.dp-popup h2 {
+	font-size: 12px;
+	top:12px;
+	text-align: center;
+	margin: 8px 0;
+	padding-right:11px;
+	color:#FFF;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	padding-top:8px;
+}
+div.head_back {
+	font-size: 12px;
+	width:150px;
+	text-align: center;
+	margin-left:24px;
+	margin-top:-8px;
+	color:#FFF;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	background:url(../images/cal_head_back.png);
+	background-repeat:no-repeat;
+	height:30px;
+	padding: 0;
+}
+
+*+html div.head_back {
+	font-size: 12px;
+	width:150px;
+	text-align: center;
+	margin-left:24px;
+	margin-top:0px;
+	color:#FFF;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	background:url(../images/cal_head_back.png);
+	background-repeat:no-repeat;
+	height:30px;
+	padding: 0;
+}
+
+*+html div.dp-popup h2 {
+	font-size: 12px;
+	top:0px;
+	text-align: center;
+	margin: 0px 0;
+	padding-right:11px;
+	color:#FFF;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	padding-top:8px;
+}
+
+
+div.dp-nav-prev-year{
+	font-size: 12px;
+	text-align: center;
+	margin: 0px -1px;
+	cursor:pointer;
+	width:27px;
+	height:26px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	background:url(../images/left_cal.png);
+	background-repeat:no-repeat;
+	height:26px;
+	padding: 0;
+}
+div.dp-nav-prev-year:hover{
+	font-size: 12px;
+	text-align: center;
+	margin: 0px -1px;
+	cursor:pointer;
+	width:27px;
+	height:26px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	background:url(../images/left_cal_hover.png);
+	background-repeat:no-repeat;
+	height:26px;
+	padding: 0;
+}
+div.dp-nav-prev-year_right{
+	font-size: 12px;
+	text-align: center;
+	margin: 0px 74px;
+	cursor:pointer;
+	width:27px;
+	height:26px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	background:url(../images/right_cal.png);
+	background-repeat:no-repeat;
+	height:26px;
+	padding: 0;
+}
+div.dp-nav-prev-year_right:hover{
+	font-size: 12px;
+	text-align: center;
+	margin: 0px 74px;
+	cursor:pointer;
+	width:27px;
+	height:26px;
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	background:url(../images/right_cal_hover.png);
+	background-repeat:no-repeat;
+	height:26px;
+	padding: 0;
+}
+a#dp-close {
+	font-size: 11px;
+	padding: 4px 0;
+	text-align: center;
+	display: block;
+}
+a#dp-close:hover {
+	text-decoration: underline;
+}
+div.dp-popup a {
+	color: #000;
+	text-decoration: none;
+	padding: 3px 2px 0;
+}
+div.dp-popup div.dp-nav-prev {
+	position: absolute;
+	top: 2px;
+	left: 4px;
+	width: 100px;
+}
+div.dp-popup div.dp-nav-prev a {
+	float: left;
+}
+/* Opera needs the rules to be this specific otherwise it doesn't change the cursor back to pointer after you have disabled and re-enabled a link */
+div.dp-popup div.dp-nav-prev a, div.dp-popup div.dp-nav-next a {
+	cursor: pointer;
+}
+div.dp-popup div.dp-nav-prev a.disabled, div.dp-popup div.dp-nav-next a.disabled {
+	cursor: default;
+}
+div.dp-popup div.dp-nav-next {
+	position: absolute;
+	top: 2px;
+	right: 4px;
+	width: 100px;
+}
+div.dp-popup div.dp-nav-next a {
+	float: right;
+}
+div.dp-popup a.disabled {
+	cursor: default;
+	color: #aaa;
+}
+div.dp-popup td {
+	cursor: pointer;
+}
+div.dp-popup td.disabled {
+	cursor: default;
+}
+
+
+
+/*------------------------*/
+
+ 
+#chooseDateForm li {
+	list-style: none;
+	padding: 5px;
+	clear: both;
+}
+ 
+a.dp-choose-date {
+	float: left;
+	width: 16px;
+	height: 16px;
+	padding: 0;
+	margin: 6px 3px 0;
+	display: block;
+	text-indent: -2000px;
+	overflow: hidden;
+	background:url(../images/cal.png) no-repeat; 
+}
+ 
+
+a.dp-choose-date.dp-disabled {
+	background-position: 0 -20px;
+	cursor: default;
+}
+
+#calendar-me {
+	margin: 20px;
+} 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<!--  This file will contain all common tiles definitionss -->
+<tiles-definitions>
+	<definition name="globalErrorTemplate" template="/WEB-INF/jsp/globalError.jsp"/>
+	
+	<definition name="iframeTemplate" template="/WEB-INF/jsp/iframelayout.jsp">
+		<put-attribute name="title" value="LCS Scheduling System" type="string" />
+		<put-attribute name="body" value="/WEB-INF/jsp/body.jsp" />
+	</definition>
+	
+	<definition name="popupTemplate" template="/WEB-INF/jsp/popuplayout.jsp">		
+		<put-attribute name="body" value="/WEB-INF/jsp/body.jsp" />
+	</definition>
+	
+	
+	<definition name="loginPage" template="/WEB-INF/jsp/login.jsp">
+</definition>
+
+
+	
+	
+</tiles-definitions>

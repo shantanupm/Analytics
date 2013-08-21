@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For assistance related to logback-translator or configuration  -->
+<!-- files in general, please contact the logback user mailing list -->
+<!-- at http://www.qos.ch/mailman/listinfo/logback-user             -->
+<!--                                                                -->
+<!-- For professional support please see                            -->
+<!--    http://www.qos.ch/shop/products/professionalSupport         -->
+<!--                                                                -->
+<configuration>
+ 
+ 
+  <!-- Perf4J appenders -->
+    <!--
+       This AsyncCoalescingStatisticsAppender groups StopWatch log messages
+       into GroupedTimingStatistics messages which it sends on the
+       file appender defined below
+    -->
+    <appender name="CoalescingStatistics" class="org.perf4j.logback.AsyncCoalescingStatisticsAppender">
+        <param name="TimeSlice" value="60000"/>
+        <appender-ref ref="graphExecutionTimes"/>
+        <appender-ref ref="graphExecutionTPS"/>
+    </appender>
+
+    <appender name="graphExecutionTimes" class="org.perf4j.logback.GraphingStatisticsAppender">
+        <!-- Possible GraphTypes are Mean, Min, Max, StdDev, Count and TPS -->
+        <param name="GraphType" value="Mean"/>
+        <!-- The tags of the timed execution blocks to graph are specified here -->
+        <param name="TagNamesToGraph" value="DESTROY_TICKET_GRANTING_TICKET,GRANT_SERVICE_TICKET,GRANT_PROXY_GRANTING_TICKET,VALIDATE_SERVICE_TICKET,CREATE_TICKET_GRANTING_TICKET" />
+    </appender>
+
+    <appender name="graphExecutionTPS" class="org.perf4j.logback.GraphingStatisticsAppender">
+        <param name="GraphType" value="TPS" />
+        <param name="TagNamesToGraph" value="DESTROY_TICKET_GRANTING_TICKET,GRANT_SERVICE_TICKET,GRANT_PROXY_GRANTING_TICKET,VALIDATE_SERVICE_TICKET,CREATE_TICKET_GRANTING_TICKET" />
+    </appender>
+
+ 
+
+    <!-- Loggers -->
+    <!--
+      The Perf4J logger. Note that org.perf4j.TimingLogger is the value of the
+      org.perf4j.StopWatch.DEFAULT_LOGGER_NAME constant. Also, note that
+      additivity is set to false, which is usually what is desired - this means
+      that timing statements will only be sent to this logger and NOT to
+      upstream loggers.
+    -->
+    <logger name="org.perf4j.TimingLogger" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="CoalescingStatistics"/>
+        <appender-ref ref="perf4jFileAppender"/>
+    </logger>
+
+    <!-- This file appender is used to output aggregated performance statistics -->
+    <appender name="perf4jFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <File>target/perf4j.log</File>
+        <encoder>
+            <Pattern>%date %-5level [%thread] %logger{36} [%file:%line] %msg%n</Pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>target/perf4j.%d{yyyy-MM-dd}.log</FileNamePattern>
+        </rollingPolicy>
+    </appender>
+    
+ 
+ 
+<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+   <file>${catalina.base}/logs/scheduling.log</file>
+   
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy"> 
+      <fileNamePattern>${catalina.base}/logs/scheduling-%d{yyyy-MM-dd}.%i.log</fileNamePattern> 
+		<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP"> 
+         <maxFileSize>1000MB</maxFileSize> 
+      </timeBasedFileNamingAndTriggeringPolicy> 
+    </rollingPolicy> 
+  	
+    <encoder>
+      <pattern>%X{Server_Url}%X{SEPARATOR}%X{QueryData}%X{SEPARATOR} %date %level [%thread] %logger{10} [%file:%line] %msg%n</pattern>
+    </encoder>
+  </appender>
+
+
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <!-- encoders are assigned the type
+         ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+		 
+    <encoder>
+      <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+  </appender>
+  
+
+	<logger name="org.springframework" level="INFO"/>
+	<logger name="org.springframework.test.context.junit4.SpringJUnit4ClassRunner" level="INFO"/>
+	<logger name="org.springframework.web" level="INFO"/>
+	<logger name="org.springframework.beans" level="INFO"/>
+	<logger name="org.hibernate.type" level="INFO" />
+  	<logger name="org.hibernate" level="INFO" />
+	<logger name="org.springframework.security.web" level="INFO"/>
+	<logger name="o.a.j.c.query" level="INFO"/>
+	<logger name="org.springframework.security" level="INFO"/>
+	<logger name="o.a.j.c.virtual" level="INFO"/>
+	<logger name="org.springframework.beans.CachedIntrospectionResults" level="INFO"/>
+	<logger name="o.a.t.d.d.ResolvingLocaleUrlDefintionDAO" level="INFO"/>
+	
+  <root level="DEBUG">
+    <appender-ref ref="FILE" />
+ 	<appender-ref ref="STDOUT" />
+  </root>
+</configuration>

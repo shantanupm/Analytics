@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 	<name>lcs-scheduling-main</name>
 	<description>
-        This is product developed by LoudCloudSystems
+        This is product developed by LoudCloudSystems in git
     </description>
 
 <properties>
