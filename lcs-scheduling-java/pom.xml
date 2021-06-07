@@ -19,7 +19,7 @@
 		<org.hibernate.version>3.6.0.Final</org.hibernate.version>
 		<spring.batch.version>2.1.7.RELEASE</spring.batch.version>
 		<slf4j.version>1.6.4</slf4j.version>
-		<logback>1.0.13</logback>
+		<logback>1.2.0</logback>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 	<repositories>
